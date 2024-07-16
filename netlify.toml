@@ -5,7 +5,3 @@
     for = "/*"
         [headers.values]
             Access-Control-Allow-Origin = "*"
- [[redirects]]
-  from = "/functions/*"
-  to = "/functions/:splat"
-  status = 200
