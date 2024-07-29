@@ -18,13 +18,11 @@ exports.handler = async (event, context) => {
   try {
     const { accountId, financialAccountId } = JSON.parse(event.body);
 
-    stripe.setApiVersion('2024-04-10; embedded_connect_beta=v2');
-
     const params = {
       account: accountId,
       components: {},
-      'components[financial_account][enabled]': true,
-      'components[financial_account][features][money_movement]': true
+      components['financial_account']['enabled']: true,
+      components['financial_account']['features']['money_movement']: true
     };
 
     const accountSession = await stripe.accountSessions.create(params);
