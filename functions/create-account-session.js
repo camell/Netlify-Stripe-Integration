@@ -1,5 +1,5 @@
 require('dotenv').config();
-const stripe = require('stripe')('sk_test_W353wCeK9s23BqD5ybvZee3w');
+const stripe = require('stripe')('sk_test_W353wCeK9s23BqD5ybvZee3w',{apiVersion: '2024-06-20; embedded_connect_beta=v2;'});
 
 exports.handler = async (event, context) => {
   const headers = {
@@ -21,7 +21,7 @@ exports.handler = async (event, context) => {
     console.log("I am about to set up the params for the account session");
 
     const params = {
-      apiVersion: '2024-04-10; embedded_connect_beta=v2',
+      account: accountId,
       components: {},
       'components[financial_account][enabled]': true,
       'components[financial_account][features][money_movement]': true
@@ -29,7 +29,7 @@ exports.handler = async (event, context) => {
 
     console.log("I'm about to create an account session");
 
-    const accountSession = await stripe.accountSessions.create(accountId, params);
+    const accountSession = await stripe.accountSessions.create(params);
 
     console.log("I've created the account session");
 
