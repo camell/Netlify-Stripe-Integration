@@ -21,8 +21,8 @@ exports.handler = async (event, context) => {
     const params = {
       account: accountId,
       components: {},
-      components['financial_account']['enabled']: true,
-      components['financial_account']['features']['money_movement']: true
+      'components[financial_account][enabled]': true,
+      'components[financial_account][features][money_movement]': true
     };
 
     const accountSession = await stripe.accountSessions.create(params);
