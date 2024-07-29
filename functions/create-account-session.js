@@ -21,7 +21,6 @@ exports.handler = async (event, context) => {
     console.log("I am about to set up the params for the account session");
 
     const params = {
-      account: accountId,
       apiVersion: '2024-04-10; embedded_connect_beta=v2',
       components: {},
       'components[financial_account][enabled]': true,
@@ -30,7 +29,7 @@ exports.handler = async (event, context) => {
 
     console.log("I'm about to create an account session");
 
-    const accountSession = await stripe.accountSessions.create(params);
+    const accountSession = await stripe.accountSessions.create(accountId, params);
 
     console.log("I've created the account session");
 
