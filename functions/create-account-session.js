@@ -18,6 +18,8 @@ exports.handler = async (event, context) => {
   try {
     const { accountId, financialAccountId } = JSON.parse(event.body);
 
+    stripe.setApiVersion('2024-04-10; embedded_connect_beta=v2');
+
     const params = {
       account: accountId,
       components: {},
