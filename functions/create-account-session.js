@@ -18,6 +18,8 @@ exports.handler = async (event, context) => {
   try {
     const { accountId, financialAccountId } = JSON.parse(event.body);
 
+    console.log("I am about to set up the params for the account session");
+
     const params = {
       account: accountId,
       components: {},
@@ -25,7 +27,11 @@ exports.handler = async (event, context) => {
       'components[financial_account][features][money_movement]': true
     };
 
+    console.log("I'm abouto to create an account session");
+
     const accountSession = await stripe.accountSessions.create(params);
+
+    console.log("I've created the account session");
 
     return {
       statusCode: 200,
