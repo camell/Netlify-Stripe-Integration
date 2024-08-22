@@ -36,7 +36,7 @@ exports.handler = async (event, context) => {
     return {
       statusCode: 200,
       headers,
-      body: JSON.stringify({ sessionId: accountSession.id }),
+      body: JSON.stringify({ client_secret: accountSession.client_secret }),
     };
   } catch (error) {
     return {
