@@ -33,9 +33,23 @@ exports.handler = async (event, context) => {
       }
     };
 
+    const testParams = {
+      account: accountId,
+      components: {
+        balances: {
+          enabled: true,
+          features: {
+            instant_payouts: true,
+            standard_payouts: true,
+            edit_payout_schedule: true,
+          },
+        },
+      }
+    };
+
     console.log("I'm about to create an account session");
 
-    const accountSession = await stripe.accountSessions.create(params);
+    const accountSession = await stripe.accountSessions.create(testParams);
 
     console.log("I've created the account session");
 
