@@ -33,7 +33,7 @@ exports.handler = async (event, context) => {
       }
     };
 
-    const testParams = {
+    /*const testParams = {
       account: accountId,
       components: {
         balances: {
@@ -45,7 +45,7 @@ exports.handler = async (event, context) => {
           },
         },
       }
-    };
+    };*/
 
     console.log("I'm about to create an account session");
 
