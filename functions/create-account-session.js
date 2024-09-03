@@ -49,7 +49,7 @@ exports.handler = async (event, context) => {
 
     console.log("I'm about to create an account session");
 
-    const accountSession = await stripe.accountSessions.create(testParams);
+    const accountSession = await stripe.accountSessions.create(params);
 
     console.log("I've created the account session");
 
